@@ -5,17 +5,33 @@
 
 {% block content %}
     <h1>Madlibs</h1>
+    <label for="country">template</label>
+    <select id="country" name="template">
+      <option value="temp1">template1</option>
+      <option value="temp2">template2</option>
+      <option value="temp3">template3</option>
+    </select>
     <form action="/story">
-        <label>place: </label>
-        <input type="text" name="place" />
-        <label>noun: </label>
-        <input type="text" name="noun" />
-        <label>verb: </label>
-        <input type="text" name="verb" />
-        <label>adjective: </label>
-        <input type="text" name="adjective" /> 
-        <label>plural_noun: </label>
-        <input type="text" name="plural_noun" />
+        <div>
+            <label>place: </label>
+            <input type="text" name="place" />
+        </div>
+        <div>
+            <label>noun: </label>
+            <input type="text" name="noun" />
+        </div>  
+        <div>
+            <label>verb: </label>
+            <input type="text" name="verb" />
+        </div>
+        <div>
+            <label>adjective: </label>
+            <input type="text" name="adjective" /> 
+        </div>
+        <div>
+            <label>plural_noun: </label>
+            <input type="text" name="plural_noun" />
+        </div>
         <button>Submit</button>
     </form>
 {% endblock %}
