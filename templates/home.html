@@ -5,14 +5,16 @@
 
 {% block content %}
        <h1>Madlibs</h1>
-        <label for="country">template</label>
-        <select id="country" name="template">
-        <option value="temp1">template1</option>
-        <option value="temp2">template2</option>
-        <option value="temp3">template3</option>
-        </select>
+   
     
     <form action="/story">
+        <select name="selected_temp">
+            {% for temp in templates %}
+              <option value="{{ temp }}">
+                {{ temp }}
+              </option>
+            {% endfor %}
+          </select>
         <div>
             <label>place: </label>
             <input type="text" name="place" />
