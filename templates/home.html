@@ -1,39 +1,42 @@
- 
    
 {% extends 'base.html' %}
 {% block title %} Home {% endblock %}
 
 {% block content %}
-       <h1>Madlibs</h1>
-   
+    <h1>Madlibs</h1>
     
     <form action="/story">
-        <select name="selected_temp">
-            {% for temp in templates %}
+       <div>
+          <label></label>
+          <select name="selected_temp" required>
+               <option value="" >-- select a story -- </option>
+              {% for temp in templates %}
+        
               <option value="{{ temp }}">
-                {{ temp }}
+                  {{ temp }}
               </option>
-            {% endfor %}
+              {% endfor %}
           </select>
+        </div>
         <div>
             <label>place: </label>
-            <input type="text" name="place" />
+            <input class="input" type="text" name="place" required  />
         </div>
         <div>
             <label>noun: </label>
-            <input type="text" name="noun" />
+            <input class="input" type="text" name="noun" required />
         </div>  
         <div>
             <label>verb: </label>
-            <input type="text" name="verb" />
-        </div>
+            <input class="input" type="text" name="verb" required />
+        </div> 
         <div>
             <label>adjective: </label>
-            <input type="text" name="adjective" /> 
+            <input class="input" type="text" name="adjective" required /> 
         </div>
         <div>
             <label>plural_noun: </label>
-            <input type="text" name="plural_noun" />
+            <input class="input" type="text" name="plural_noun" required />
         </div>
         <button>Submit</button>
     </form>

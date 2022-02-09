@@ -7,11 +7,11 @@ import sys
 app = Flask(__name__)
 sys.path.append(".")
 
-templates = ["""Once upon a time in a long-ago {place}, there lived a
+templates = ["""1 Once upon a time in a long-ago {place}, there lived a
        large {adjective} {noun}. It loved to {verb} {plural_noun}.""",
-             """Twice upon a time in a long-ago {place}, there lived a
+             """2 Once upon a time in a long-ago {place}, there lived a
        large {adjective} {noun}. It loved to {verb} {plural_noun}.""",
-             """Three upon a time in a long-ago {place}, there lived a
+             """3 Once upon a time in a long-ago {place}, there lived a
        large {adjective} {noun}. It loved to {verb} {plural_noun}."""]
 
 
@@ -29,7 +29,11 @@ def compose_story():
     adjective = request.args["adjective"]
     plural_noun = request.args["plural_noun"]
     print(request.args)
-    selected_temp = request.args["template"]
-    # print(selected_temp)
+    selected_temp = request.args["selected_temp"]
 
-    return render_template('story.html', place=place, noun=noun, verb=verb, adjective=adjective, plural_noun=plural_noun, selected_temp=selected_temp)
+    s = Story(["place", "noun", "verb", "adjective",
+              "plural_noun"], selected_temp)
+    text = s.generate({"place": place, "noun": noun, "verb": verb,
+                      "adjective": adjective, "plural_noun": plural_noun})
+
+    return render_template('story.html', text=text)
